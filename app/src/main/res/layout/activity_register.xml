@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/reg_splash_image"
+        android:layout_width="155dp"
+        android:layout_height="140dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        app:srcCompat="@mipmap/ic_launcher_round"
+        tools:layout_editor_absoluteX="115dp"
+        tools:layout_editor_absoluteY="82dp" />
+
+
+    <EditText
+        android:id="@+id/reg_name"
+        android:layout_width="339dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/reg_password_text"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="202dp"
+        android:ems="10"
+        android:hint="@string/name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/reg_email_text"
+        android:layout_width="343dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/reg_password_text"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginBottom="204dp"
+        android:ems="10"
+        android:hint="@string/fui_email_hint"
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="269dp" />
+
+    <EditText
+        android:id="@+id/reg_password_text"
+        android:layout_width="341dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="148dp"
+        android:ems="10"
+        android:hint="@string/fui_password_hint"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="341dp" />
+
+    <Button
+        android:id="@+id/sign_up_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="89dp"
+        android:text="@string/fui_title_register_email" />
+
+    <TextView
+        android:id="@+id/yes_account_text"
+        android:layout_width="330dp"
+        android:layout_height="33dp"
+        android:layout_alignEnd="@+id/sign_up_button"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="-122dp"
+        android:layout_marginBottom="42dp"
+        android:gravity="center_vertical"
+        android:text="@string/yes_account"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        tools:text="@string/yes_account" />
+
+</RelativeLayout>

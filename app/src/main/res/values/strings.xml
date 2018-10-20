@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Deutsche</string>
+
+    <string name="alphabets">Alphabets</string>
+    <string name="numbers">Numbers</string>
+    <string name="greetings">Greeting</string>
+    <string name="phrases">Frequent Phrases</string>
+    <string name="days">Days of Week</string>
+    <string name="months">Months</string>
+    <string name="colours">Colours</string>
+    <string name="family">Family</string>
+
+    <string name="test">Take Test</string>
+
+    <string name="logout">Logout</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+
+    <string name="no_account">Don\'t have an account yet?</string>
+    <string name="yes_account">Already have an account yet?</string>
+    <string name="forgot_pass">Forgot Password?</string>
+    <string name="name">Name</string>
+</resources>

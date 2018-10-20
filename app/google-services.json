@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "881629956569",
+    "firebase_url": "https://deutsche-101.firebaseio.com",
+    "project_id": "deutsche-101",
+    "storage_bucket": "deutsche-101.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881629956569:android:70f2320d2f0e83be",
+        "android_client_info": {
+          "package_name": "com.example.root.deutsche"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881629956569-in2uhcodb5lmrak61sh8eos0ft1vfvcs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.root.deutsche",
+            "certificate_hash": "aff3d86907d1ccf3208542cf04302f60db4100d3"
+          }
+        },
+        {
+          "client_id": "881629956569-k8al5tdbfhib71f0c3oom7bm99jte0do.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2-F0XQJxfFw17FxdKk8KGebHXjObBjsA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881629956569-k8al5tdbfhib71f0c3oom7bm99jte0do.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
