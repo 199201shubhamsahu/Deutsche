@@ -98,7 +98,6 @@ class AlphabetsActivity: NavigationView.OnNavigationItemSelectedListener, AppCom
     public override fun onResume() {
         super.onResume()
         itemList.clear()
-//        recycler_list.adapter!!.notifyDataSetChanged()
 
         mAuth.addAuthStateListener(mAuthListener)
     }
@@ -109,7 +108,6 @@ class AlphabetsActivity: NavigationView.OnNavigationItemSelectedListener, AppCom
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.logout -> {
                 FirebaseAuth.getInstance().signOut()

@@ -19,7 +19,6 @@ import com.google.android.gms.tasks.OnCompleteListener
 
 class LoginActivity : AppCompatActivity(){
 
-
     lateinit var mLoginBtn: Button
     lateinit var mLoginEmail: EditText
     lateinit var mLoginPassword: EditText
@@ -51,7 +50,6 @@ class LoginActivity : AppCompatActivity(){
             val email = mLoginEmail.text.toString().trim()
             val password = mLoginPassword.text.toString().trim()
 
-
             if(TextUtils.isEmpty(email)){
                 mLoginEmail.error = "Enter email"
                 return@setOnClickListener
@@ -61,28 +59,22 @@ class LoginActivity : AppCompatActivity(){
                 return@setOnClickListener
             }
 
-
             loginUser(email, password)
-
         }
-
-
     }
 
     private fun loginUser(email: String, password: String){
 
         mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        val intent = Intent(applicationContext, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
 
-                    } else {
-                        Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
-                    }
-
-                    // ...
+                } else {
+                    Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
                 }
+            }
     }
 }

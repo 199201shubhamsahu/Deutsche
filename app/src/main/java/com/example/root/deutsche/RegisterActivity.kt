@@ -10,12 +10,8 @@ import android.widget.TextView
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import android.widget.Toast
-import com.google.android.gms.tasks.Task
-import android.support.annotation.NonNull
-import android.util.Log
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.*
-
 
 class RegisterActivity : AppCompatActivity(){
 
@@ -32,7 +28,6 @@ class RegisterActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-
         mAuth = FirebaseAuth.getInstance()
 
         mRegBtn = findViewById(R.id.sign_up_button)
@@ -40,10 +35,6 @@ class RegisterActivity : AppCompatActivity(){
         mRegPassword = findViewById(R.id.reg_password_text)
         mRegName = findViewById(R.id.reg_name)
         mLoginLink = findViewById(R.id.yes_account_text)
-
-
-
-
 
         mLoginLink.setOnClickListener(){
             val intent = Intent(applicationContext, LoginActivity::class.java)
@@ -115,8 +106,6 @@ class RegisterActivity : AppCompatActivity(){
                         Toast.makeText(this, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show()
                     }
-
-                    // ...
                 }
 
 
