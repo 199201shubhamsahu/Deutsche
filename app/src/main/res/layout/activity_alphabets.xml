@@ -5,11 +5,43 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.RecyclerView
 
-        android:id="@+id/recycler_list"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/titleLeft"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="@string/letter"
+            android:textSize="23sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/pron"
+            android:textSize="23sp"
+            android:gravity="center"
+            android:layout_toEndOf="@id/titleLeft"/>
+
+        <View
+            android:id="@+id/belowBar"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="#707070"
+            android:layout_below="@+id/titleLeft"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_below="@+id/belowBar"
+            android:id="@+id/recycler_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view_alphabets"

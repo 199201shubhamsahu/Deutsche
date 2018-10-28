@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.list_item.view.*
 
-class RecyclerAdapter(val items : ArrayList<String>, val context: Context) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter(private val item : ArrayList<Alphabets>, private val context: Context) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     // Gets the number of animals in the list
     override fun getItemCount(): Int {
-        return items.size
+        return item.size
     }
 
     // Inflates the item views
@@ -21,12 +21,13 @@ class RecyclerAdapter(val items : ArrayList<String>, val context: Context) : Rec
 
     // Binds each animal in the ArrayList to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder?.item?.text = items.get(position)
+        holder.item1.text = item[position].letter
+        holder.item2.text = item[position].pronunciation
     }
 
     class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
         // Holds the TextView that will add each animal to
-        val item = view.item
+        val item1 = view.item1!!
+        val item2 = view.item2!!
     }
 }
-

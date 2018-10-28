@@ -99,8 +99,8 @@ class RegisterActivity : AppCompatActivity(){
                                         .setDisplayName(name)
                                         .build()
 
-                                currentUser?.updateProfile(profileUpdates)
-                                        ?.addOnCompleteListener { task ->
+                                currentUser.updateProfile(profileUpdates)
+                                        .addOnCompleteListener { task ->
                                             if (task.isSuccessful) {
                                             }
                                         }

@@ -56,9 +56,9 @@ class MainActivity : NavigationView.OnNavigationItemSelectedListener, AppCompatA
 
                 supportActionBar!!.setDisplayHomeAsUpEnabled(true)
                 val navigationView = findViewById<NavigationView>(R.id.nav_view)
-                var menu = navigationView.menu
-                var userName = menu.findItem(R.id.nav_username)
-                userName.title = user.displayName.toString()
+                val menu = navigationView.menu
+                val userName = menu.findItem(R.id.nav_username)
+                userName.title = "Welcome, "+user.displayName.toString()
                 navigationView.setNavigationItemSelectedListener(this)
 
                 Alphabets.setOnClickListener {

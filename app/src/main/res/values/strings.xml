@@ -10,6 +10,8 @@
     <string name="colours">Colours</string>
     <string name="family">Family</string>
 
+    <string name="letter">Letter</string>
+    <string name="pron">Pronunciation</string>
     <string name="test">Take Test</string>
 
     <string name="logout">Logout</string>
