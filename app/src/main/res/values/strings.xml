@@ -12,11 +12,16 @@
 
     <string name="letter">Letter</string>
     <string name="pron">Pronunciation</string>
+    <string name="number">Numbers</string>
+    <string name="numberToWord">In words</string>
+
     <string name="test">Take Test</string>
     <string name="submit">Submit</string>
     <string name="logout">Logout</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+
+
 
     <string name="no_account">Don\'t have an account yet?</string>
     <string name="yes_account">Already have an account yet?</string>

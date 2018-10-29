@@ -29,6 +29,10 @@
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
+            android:name=".NumbersActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
             android:name=".TestActivity"
             android:parentActivityName=".MainActivity">
         </activity>

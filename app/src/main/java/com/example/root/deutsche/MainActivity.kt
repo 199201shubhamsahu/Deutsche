@@ -13,6 +13,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.view.MenuItem
 import android.widget.Toast
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class User{
     var name: String =""
@@ -30,17 +31,11 @@ class MainActivity : NavigationView.OnNavigationItemSelectedListener, AppCompatA
     private lateinit var mDrawerLayout: DrawerLayout
     private lateinit var mDrawerToggleButton: ActionBarDrawerToggle
 
-    private lateinit var mAlphabets: TextView
-    private lateinit var mTest: TextView
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         mAuth = FirebaseAuth.getInstance()
-        mAlphabets = findViewById(R.id.alphabets)
-        mTest = findViewById(R.id.test_textView)
     }
 
     public override fun onStart() {
@@ -82,14 +77,17 @@ class MainActivity : NavigationView.OnNavigationItemSelectedListener, AppCompatA
 
                 navigationView.setNavigationItemSelectedListener(this)
 
-                mAlphabets.setOnClickListener {
+                alphabets.setOnClickListener {
                     val intent = Intent(applicationContext, AlphabetsActivity::class.java)
                     startActivity(intent)
                 }
 
+                numbers.setOnClickListener {
+                    val intent = Intent(applicationContext, NumbersActivity::class.java)
+                    startActivity(intent)
+                }
 
-
-                mTest.setOnClickListener {
+                test_textView.setOnClickListener {
                     val intent = Intent(applicationContext, TestActivity::class.java)
                     startActivity(intent)
                 }

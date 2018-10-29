@@ -30,7 +30,8 @@ class AlphabetsActivity: NavigationView.OnNavigationItemSelectedListener, AppCom
     private lateinit var mFireBaseDatabase: FirebaseDatabase
     private lateinit var mDatabaseReference: DatabaseReference
     private lateinit var mUserDatabaseReference: DatabaseReference
-    val itemList: ArrayList<Alphabets> = ArrayList()
+    val itemList1: ArrayList<String> = ArrayList()
+    val itemList2: ArrayList<String> = ArrayList()
     private lateinit var mDrawerLayout: DrawerLayout
     private lateinit var mDrawerToggleButton: ActionBarDrawerToggle
 
@@ -85,14 +86,15 @@ class AlphabetsActivity: NavigationView.OnNavigationItemSelectedListener, AppCom
                 mDatabaseReference = mFireBaseDatabase.getReference("Alphabets")
 
                 alphabet_recycler_list.layoutManager = LinearLayoutManager(this)
-                alphabet_recycler_list.adapter = TwoColRecyclerAdapter(itemList, this)
+                alphabet_recycler_list.adapter = TwoColRecyclerAdapter(itemList1, itemList2, this)
 
                 mDatabaseReference.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                         for(dataSnapshot1: DataSnapshot in dataSnapshot.children){
                             val value = dataSnapshot1.getValue(Alphabets::class.java)
-                            itemList.add(value!!)
+                            itemList1.add(value!!.letter)
+                            itemList2.add(value.pronunciation)
                         }
                         alphabet_recycler_list.adapter!!.notifyDataSetChanged()
                     }
@@ -107,7 +109,8 @@ class AlphabetsActivity: NavigationView.OnNavigationItemSelectedListener, AppCom
 
     public override fun onResume() {
         super.onResume()
-        itemList.clear()
+        itemList1.clear()
+        itemList2.clear()
 
         mAuth.addAuthStateListener(mAuthListener)
     }
