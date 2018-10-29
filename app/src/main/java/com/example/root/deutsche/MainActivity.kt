@@ -6,26 +6,32 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 import android.support.design.widget.NavigationView
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import android.support.v4.view.GravityCompat
-import android.support.annotation.NonNull
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
-import android.view.Menu
 import android.view.MenuItem
-import android.view.View
+import android.widget.Toast
+import com.google.firebase.database.*
+
+class User{
+    var name: String =""
+    var email: String =""
+    var marks: Int = 0
+}
 
 class MainActivity : NavigationView.OnNavigationItemSelectedListener, AppCompatActivity () {
 
 
-    lateinit var mAuth: FirebaseAuth
-    lateinit var mAuthListener: AuthStateListener
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var mAuthListener: AuthStateListener
+    private lateinit var mUserDatabaseReference: DatabaseReference
 
-    lateinit var mDrawerLayout: DrawerLayout
-    lateinit var mDrawerToggleButton: ActionBarDrawerToggle
+    private lateinit var mDrawerLayout: DrawerLayout
+    private lateinit var mDrawerToggleButton: ActionBarDrawerToggle
 
-    lateinit var Alphabets: TextView
+    private lateinit var mAlphabets: TextView
+    private lateinit var mTest: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,8 +39,8 @@ class MainActivity : NavigationView.OnNavigationItemSelectedListener, AppCompatA
         setContentView(R.layout.activity_main)
 
         mAuth = FirebaseAuth.getInstance()
-        Alphabets = findViewById(R.id.alphabets)
-
+        mAlphabets = findViewById(R.id.alphabets)
+        mTest = findViewById(R.id.test_textView)
     }
 
     public override fun onStart() {
@@ -47,7 +53,6 @@ class MainActivity : NavigationView.OnNavigationItemSelectedListener, AppCompatA
                 finish()
             }
             else {
-
                 mDrawerLayout = findViewById(R.id.drawer_layout)
                 mDrawerToggleButton = ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close)
                 mDrawerLayout.addDrawerListener(mDrawerToggleButton)
@@ -58,13 +63,36 @@ class MainActivity : NavigationView.OnNavigationItemSelectedListener, AppCompatA
                 val menu = navigationView.menu
                 val userName = menu.findItem(R.id.nav_username)
                 userName.title = "Welcome, "+user.displayName.toString()
+
+                mUserDatabaseReference = FirebaseDatabase.getInstance().getReference("Users").child(user.uid)
+                val navMarks = menu.findItem(R.id.navMarks)
+
+                mUserDatabaseReference.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                        val value = dataSnapshot.getValue(User::class.java)
+                        navMarks.title = "Marks: "+value!!.marks
+
+                    }
+
+                    override fun onCancelled(databaseError: DatabaseError) {
+                        Toast.makeText(applicationContext, "Can't fetch data", Toast.LENGTH_SHORT).show()
+                    }
+                })
+
                 navigationView.setNavigationItemSelectedListener(this)
 
-                Alphabets.setOnClickListener {
+                mAlphabets.setOnClickListener {
                     val intent = Intent(applicationContext, AlphabetsActivity::class.java)
                     startActivity(intent)
                 }
 
+
+
+                mTest.setOnClickListener {
+                    val intent = Intent(applicationContext, TestActivity::class.java)
+                    startActivity(intent)
+                }
             }
         }
     }

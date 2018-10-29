@@ -21,14 +21,6 @@ class Alphabets{
 
     var letter: String =""
     var pronunciation: String =""
-
-    constructor()
-    {}
-
-    constructor(alphabet: String, pron: String){
-        this.letter = alphabet
-        this.pronunciation = pron
-    }
 }
 
 class AlphabetsActivity: NavigationView.OnNavigationItemSelectedListener, AppCompatActivity () {//TODO 3
@@ -37,6 +29,7 @@ class AlphabetsActivity: NavigationView.OnNavigationItemSelectedListener, AppCom
     private lateinit var mAuthListener: FirebaseAuth.AuthStateListener
     private lateinit var mFireBaseDatabase: FirebaseDatabase
     private lateinit var mDatabaseReference: DatabaseReference
+    private lateinit var mUserDatabaseReference: DatabaseReference
     val itemList: ArrayList<Alphabets> = ArrayList()
     private lateinit var mDrawerLayout: DrawerLayout
     private lateinit var mDrawerToggleButton: ActionBarDrawerToggle
@@ -69,13 +62,30 @@ class AlphabetsActivity: NavigationView.OnNavigationItemSelectedListener, AppCom
                 val userName = menu.findItem(R.id.nav_username)
 
                 userName.title = "Welcome, "+user.displayName.toString()
+
+                mUserDatabaseReference = FirebaseDatabase.getInstance().getReference("Users").child(user.uid)
+                val navMarks = menu.findItem(R.id.navMarks)
+
+                mUserDatabaseReference.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                        val value = dataSnapshot.getValue(User::class.java)
+                        navMarks.title = "Marks: "+value!!.marks
+
+                    }
+
+                    override fun onCancelled(databaseError: DatabaseError) {
+                        Toast.makeText(applicationContext, "Can't fetch data", Toast.LENGTH_SHORT).show()
+                    }
+                })
+
                 navigationView.setNavigationItemSelectedListener(this)
 
                 mFireBaseDatabase = FirebaseDatabase.getInstance()
                 mDatabaseReference = mFireBaseDatabase.getReference("Alphabets")
 
-                recycler_list.layoutManager = LinearLayoutManager(this)
-                recycler_list.adapter = RecyclerAdapter(itemList, this)
+                alphabet_recycler_list.layoutManager = LinearLayoutManager(this)
+                alphabet_recycler_list.adapter = TwoColRecyclerAdapter(itemList, this)
 
                 mDatabaseReference.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -84,7 +94,7 @@ class AlphabetsActivity: NavigationView.OnNavigationItemSelectedListener, AppCom
                             val value = dataSnapshot1.getValue(Alphabets::class.java)
                             itemList.add(value!!)
                         }
-                        recycler_list.adapter!!.notifyDataSetChanged()
+                        alphabet_recycler_list.adapter!!.notifyDataSetChanged()
                     }
 
                     override fun onCancelled(databaseError: DatabaseError) {

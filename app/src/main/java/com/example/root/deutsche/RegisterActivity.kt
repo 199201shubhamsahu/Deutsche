@@ -80,18 +80,14 @@ class RegisterActivity : AppCompatActivity(){
                         userMap["email"]= email
 
                         mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(uid)
-                        mDatabase.setValue(userMap).addOnCompleteListener(OnCompleteListener { task ->
+                        mDatabase.setValue(userMap).addOnCompleteListener{
 
                             if(task.isSuccessful){
-
-
-
                                 val profileUpdates = UserProfileChangeRequest.Builder()
-                                        .setDisplayName(name)
-                                        .build()
+                                        .setDisplayName(name).build()
 
                                 currentUser.updateProfile(profileUpdates)
-                                        .addOnCompleteListener { task ->
+                                        .addOnCompleteListener {
                                             if (task.isSuccessful) {
                                             }
                                         }
@@ -99,8 +95,8 @@ class RegisterActivity : AppCompatActivity(){
                                 startActivity(intent)
                                 finish()
                             }
-                        })
-
+                        }
+                        mDatabase.child("marks").setValue(0)
 
                     } else {
                         Toast.makeText(this, "Authentication failed.",

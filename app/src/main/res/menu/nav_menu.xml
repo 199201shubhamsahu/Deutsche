@@ -5,10 +5,8 @@
         android:title="@string/name">
     </item>
 
-    <item android:id="@+id/setting"
-        android:title="@string/name"
-
-        >
+    <item android:id="@+id/navMarks"
+        android:title="0">
     </item>
 
     <item android:id="@+id/logout"
