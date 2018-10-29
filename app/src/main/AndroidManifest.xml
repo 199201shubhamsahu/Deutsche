@@ -33,6 +33,14 @@
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
+            android:name=".DaysOfWeekActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+            android:name=".ColoursActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
             android:name=".TestActivity"
             android:parentActivityName=".MainActivity">
         </activity>

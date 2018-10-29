@@ -14,6 +14,11 @@
     <string name="pron">Pronunciation</string>
     <string name="number">Numbers</string>
     <string name="numberToWord">In words</string>
+    <string name="day">Day</string>
+    <string name="in_german">In German</string>
+    <string name="colour">Colour</string>
+
+
 
     <string name="test">Take Test</string>
     <string name="submit">Submit</string>
