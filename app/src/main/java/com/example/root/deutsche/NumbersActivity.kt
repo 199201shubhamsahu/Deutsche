@@ -17,6 +17,11 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_numbers.*
 
+/*  Created by
+ *   Shubham Sahu(pizzasahu)
+ *   in 2018
+ */
+
 class Numbers{
 
     var numberdata: String =""

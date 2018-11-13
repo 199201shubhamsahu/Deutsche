@@ -14,6 +14,12 @@ import android.widget.Toast
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 
+/*  Created by
+ *   Shubham Sahu(pizzasahu)
+ *   in 2018
+ */
+
+
 class User{
     var name: String =""
     var email: String =""
@@ -134,5 +140,4 @@ class MainActivity : NavigationView.OnNavigationItemSelectedListener, AppCompatA
         }
         return super.onOptionsItemSelected(item)
     }
-
 }

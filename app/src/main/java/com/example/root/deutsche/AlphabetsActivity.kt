@@ -17,6 +17,11 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.ValueEventListener
 
+/*  Created by
+ *   Shubham Sahu(pizzasahu)
+ *   in 2018
+ */
+
 class Alphabets{
 
     var letter: String =""

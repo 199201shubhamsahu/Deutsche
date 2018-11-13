@@ -13,6 +13,11 @@ import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.*
 
+/*  Created by
+ *   Shubham Sahu(pizzasahu)
+ *   in 2018
+ */
+
 class RegisterActivity : AppCompatActivity(){
 
     lateinit var mRegBtn: Button

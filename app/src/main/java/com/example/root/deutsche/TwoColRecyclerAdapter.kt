@@ -7,6 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.list_item.view.*
 
+/*  Created by
+ *   Shubham Sahu(pizzasahu)
+ *   in 2018
+ */
+
 class TwoColRecyclerAdapter(private val item1 : ArrayList<String>, private val item2 : ArrayList<String>, private val context: Context) : RecyclerView.Adapter<TwoColRecyclerAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int {
