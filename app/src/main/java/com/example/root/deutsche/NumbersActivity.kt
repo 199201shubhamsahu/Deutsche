@@ -21,7 +21,6 @@ import kotlinx.android.synthetic.main.activity_numbers.*
  *   Shubham Sahu(pizzasahu)
  *   in 2018
  */
-
 class Numbers{
 
     var numberdata: String =""
