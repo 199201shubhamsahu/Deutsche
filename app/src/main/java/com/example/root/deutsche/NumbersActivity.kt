@@ -115,7 +115,6 @@ class NumbersActivity: NavigationView.OnNavigationItemSelectedListener, AppCompa
         super.onResume()
         itemList1.clear()
         itemList2.clear()
-
         mAuth.addAuthStateListener(mAuthListener)
     }
 
