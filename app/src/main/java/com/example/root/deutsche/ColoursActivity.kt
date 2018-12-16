@@ -77,7 +77,6 @@ class ColoursActivity: NavigationView.OnNavigationItemSelectedListener, AppCompa
 
                         val value = dataSnapshot.getValue(User::class.java)
                         navMarks.title = "Marks: "+value!!.marks
-
                     }
 
                     override fun onCancelled(databaseError: DatabaseError) {
